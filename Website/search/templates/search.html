@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'search/css/styles.css' %}">
+    <title>Artist Word Association</title>
+</head>
+<body>
+    <div id="navbar-container">
+        <div id="ls-container">
+            <div id="title-abbrv">
+                <p>AWA.</p>
+            </div>
+            <div id="title-full">
+                <p>Artist</p>
+                <p>Word</p>
+                <p>Association</p>
+            </div>
+        </div>
+        <div id="rs-container">
+            <nav>
+                <form action="" method="get">
+                    <input type="text" class="nav-item" id="navsearch" name="artist" placeholder="  Artist name or Twitter handle..." required>
+                    <input type="submit" value="Submit">
+                </form>
+            </nav>
+        </div>
+    </div>
+    <div id="main-container">
+        <div id="twitter-container">
+            <div id="profile-container">
+                <img id="profile-picture" src="{{ imgURL }}">
+                <div id="profile-information">
+                    <p id="screen-name">{{ screenName }}</p>
+                    <p id="handle">@{{ handle }}</p>
+                </div>
+            </div>
+            <div id="twitter-embed-container">
+                <a class="twitter-timeline" data-width="350" data-height="450" data-theme="dark" href="https://twitter.com/{{ handle }}?ref_src=twsrc%5Etfw">Tweets by {{ handle }}</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+        </div>
+        <div id="graph-container">
+            <div>
+                <canvas id="myChart" width="800" height="400"></canvas>
+            </div>
+            <div id="selections-container">
+                <form id="regenerate" action="" method="get">
+                    <input type="text" id="selection-artist" name="artist" value="{{ handle }}" style="display: none;">
+                    <input type="radio" id="engagement" name="select-e" value="Engagement">
+                    <label for="engagement">Engagement</label><br>
+                    <input type="radio" id="rt-likes" name="select-e" value="totalRL">
+                    <label for="rt-likes">Total RTs & Likes</label><br>
+                    <select name="start">
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                    <p> to </p>
+                    <select name="end">
+                        <option value="2006">2006</option>
+                        <option value="2007">2007</option>
+                        <option value="2008">2008</option>
+                        <option value="2009">2009</option>
+                        <option value="2010">2010</option>
+                        <option value="2011">2011</option>
+                        <option value="2012">2012</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2015">2015</option>
+                        <option value="2016">2016</option>
+                        <option value="2017">2017</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                        <option value="2021">2021</option>
+                        <option value="2022">2022</option>
+                    </select>
+                    <input type="submit" form="regenerate" value="Submit">
+                </form>
+            </div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels : {{ created_at_month_year|safe }},
+          datasets: [{
+            label: "{{ label_desc|safe }}",
+            data : {{ data|safe }},
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+  </script>
+</body>
+</html>

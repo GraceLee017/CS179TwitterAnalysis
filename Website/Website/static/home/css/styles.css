@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap');
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #1F1F1F;
+    color: #FFFFFF;
+}
+
+/* ---------------- Navigation Bar ---------------- */
+#navbar-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 35px 35px 0px 35px;
+}
+
+#ls-container{
+    display: flex;
+    align-items: center;
+}
+
+#title-abbrv p{
+    margin: 0px;
+    padding-right: 15px;
+    font-weight: 600;
+    font-size: 35px;
+}
+
+#title-full p{
+    margin: -12px 0px 0px 0px;
+    font-size: 20px;
+}
+
+#rs-container ul{
+    display: flex;
+    list-style-type: none;
+}
+
+.nav-link{
+    padding-left: 75px;
+    font-size: 22px;
+}
+
+.nav-link a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* ---------------- Title & Searchbar ---------------- */
+#main-container{
+    display: flex;
+    flex-direction: column;
+    margin: 60px auto;
+    width: 50%;
+    text-align: center;
+}
+
+#main-title h1{
+    margin: 0px;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+#search-container{
+    margin-top: 10px;
+}
+#searchbar{
+    width: 500px;
+    height: 30px;
+    border-radius: 30px;
+}
+
+/* ---------------- Images ---------------- */
+#tylerthecreator{
+    position: absolute;
+    top: 130px;
+    left: 50px;
+    width: 325px;
+    height: auto;
+}
+
+#dijon{
+    position: absolute;
+    bottom: 0px;
+}
+
+#sza{
+    position: absolute;
+    bottom: 0px;
+    left: 350px;
+    width: 285px;
+    height: auto;
+}
+
+#amine{
+    position: absolute;
+    bottom: 20px;
+    right: 300px;
+    width: 330px;
+    height: auto;
+}
+
+#beabadoobee{
+    position: absolute;
+    bottom: 135px;
+    right: 40px;
+    width: 340px;
+    height: auto;
+    
+}
+
+#omarapollo{
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    width: 570px;
+    height: auto;
+}
